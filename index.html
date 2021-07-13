@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js" integrity="sha512-LF8ZB1iTwi4Qvkm4pekHG4a437Y9Af5ZuwbnW4GTbAWQeR2E4KW8WF+xH8b9psevV7wIlDMx1MH9YfPqgKhA/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript" src="https://unpkg.com/noisejs@2.1.0/index.js"></script>
+
+</head>
+
+<!-- https://stackoverflow.com/questions/15071062/using-javascript-to-edit-css-gradient -->
+
+<body>
+
+
+  <div class="recursives-wrapper" id="wrapper">
+
+
+    <div class="recursive-active" id="raA">
+    <div class="recursive-active" id="raB">
+      <div class="recursive-active" id="raC">
+      <div class="recursive-active" id="raD">
+
+    <div class="recursive-active" id="ra1">
+      <div class="recursive-active" id="ra2">
+        <div class="recursive-active" id="ra3">
+          <div class="recursive-active" id="ra4">
+            <div class="recursive-active" id="ra5">
+              <div class="recursive-active" id="ra6">
+                <div class="recursive-active" id="ra7">
+                  <div class="recursive-active" id="ra8">
+                    <!-- <div class="recursive-active" id="ra9">
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      </div>
+        </div>
+      </div>
+        </div>
+
+</div>
+
+  <script>
+
+
+  // --- gradient data:
+  var gradients = [ { "colors": [ { "color": "#c9c0d4", "pos": 0.0 }, { "color": "#c783bd", "pos": 0.242299988865852 }, { "color": "#ff1200", "pos": 0.484500020742416 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#8dccdc", "pos": 0.695899963378906 }, { "color": "#c4dceb", "pos": 0.804100036621094 }, { "color": "#c9c04d", "pos": 0.933000028133392 } ], "name": "surge" }, { "colors": [ { "color": "#c7bed2", "pos": 0.0 }, { "color": "#58b4db", "pos": 0.190699994564056 }, { "color": "#38bb6a", "pos": 0.479399979114532 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#ee9bcb", "pos": 0.63919997215271 }, { "color": "#c2dae9", "pos": 0.804100036621094 }, { "color": "#82bed2", "pos": 0.933000028133392 } ], "name": "vailance" }, { "colors": [ { "color": "#c7bed2", "pos": 0.0 }, { "color": "#ffef2f", "pos": 0.242299988865852 }, { "color": "#f06729", "pos": 0.484500020742416 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#948fb8", "pos": 0.649499952793121 }, { "color": "#c2dae9", "pos": 0.804899990558624 }, { "color": "#c7bed2", "pos": 0.933000028133392 } ], "name": "dawnburst" }, { "colors": [ { "color": "#ffead6", "pos": 0.0 }, { "color": "#ff9924", "pos": 0.172099992632866 }, { "color": "#dd3333", "pos": 0.288700014352798 }, { "color": "#443d85", "pos": 0.479399979114532 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#c5e5f0", "pos": 0.700399994850159 }, { "color": "#e6f5ff", "pos": 0.814400017261505 }, { "color": "#83d4c8", "pos": 1.0 } ], "name": "blazon" }, { "colors": [ { "color": "#afd3de", "pos": 0.0 }, { "color": "#ded170", "pos": 0.190699994564056 }, { "color": "#fd8015", "pos": 0.345400005578995 }, { "color": "#9d84c2", "pos": 0.489500015974045 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#5a84bd", "pos": 0.645899951457977 }, { "color": "#e1f5ff", "pos": 0.840199947357178 }, { "color": "#9cb8ee", "pos": 1.0 } ], "name": "arcon" }, { "colors": [ { "color": "#d9c2fc", "pos": 0.046399999409914 }, { "color": "#d446cd", "pos": 0.340200006961823 }, { "color": "#fd9125", "pos": 0.505200028419495 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#7086b8", "pos": 0.649499952793121 }, { "color": "#ebf6ff", "pos": 0.835099995136261 }, { "color": "#99bce9", "pos": 0.974200010299683 } ], "name": "pulsar" } ]
+   var gradientNames = [];
+   for (i = 0; i < gradients.length; i++){
+     gradientNames.push(gradients[i].name);
+   }
+
+   var gradient=gradients[0].colors;
+
+    var obj = {
+
+        gradientName: "brightspar",
+
+        rotationSpeed: 0.1,
+        rotationOffset: 10,
+
+
+        useRotationNoise: false,
+
+        rotationNoiseScale: 1,
+        rotationNoiseSpeed: 0.03,
+        rotationNoiseFreq: 0.19,
+
+        centerX: 0.5,
+        centerY: 0.5,
+
+        useCenterPush: false,
+
+        centerXPushScale: 0.0,
+        centerYPushScale: 0.0,
+        centerXPushSpeed: 0.0,
+        centerYPushSpeed: 0.0,
+        centerXPushFreq: 0.0,
+        centerYPushFreq: 0.0,
+
+    };
+
+    var gui = new dat.gui.GUI( { width: 300 });
+    gui.remember(obj);
+    gui.add(obj, 'gradientName', gradientNames).onChange(
+      function(value){
+        var ii = gradientNames.indexOf(value);
+        gradient = gradients[ii].colors;
+        console.log("here?");
+      }
+    );
+
+
+
+    var RotFolder = gui.addFolder('Rotation');
+    RotFolder.add(obj, 'rotationSpeed').min(-10).max(10).step(0.25);
+    RotFolder.add(obj, 'rotationOffset').min(-50).max(50).step(0.25);
+    RotFolder.add(obj, 'useRotationNoise');
+    RotFolder.add(obj, 'rotationNoiseScale').min(0).max(3).step(0.1);
+    RotFolder.add(obj, 'rotationNoiseSpeed').min(0.0001).max(0.2);
+    RotFolder.add(obj, 'rotationNoiseFreq').min(0.0).max(1.0);
+    var CetFolder = gui.addFolder('Center offsets');
+
+
+    CetFolder.add(obj, 'centerX').min(0.0).max(1.0);
+    CetFolder.add(obj, 'centerY').min(0.0).max(1.0);
+
+
+    CetFolder.add(obj, 'useCenterPush');
+
+    CetFolder.add(obj, 'centerXPushScale').min(0.0).max(1.0).step(0.01);
+    CetFolder.add(obj, 'centerYPushScale').min(0.0).max(1.0).step(0.01);
+    CetFolder.add(obj, 'centerXPushSpeed').min(0.0).max(1.0).step(0.01);
+    CetFolder.add(obj, 'centerYPushSpeed').min(0.0).max(1.0).step(0.01);
+    CetFolder.add(obj, 'centerXPushFreq').min(0.0).max(1.0).step(0.01);
+    CetFolder.add(obj, 'centerYPushFreq').min(0.0).max(1.0).step(0.01);
+
+
+var shapeObj = {
+  width: 50,
+  height: 70,
+  padding: 1.12,
+  borderRadius: 1.12,
+  blur: false,
+  alphaFade: false,
+  alphaSpeed: 0.05
+
+
+}
+var gui2 = new dat.gui.GUI( { width: 300 });
+gui2.remember(shapeObj);
+gui2.add(shapeObj, 'width').min(0).max(100).step(0.25).onChange(
+  function(value){
+
+    // var amount = 0;
+    // document.getElementById("wrapper").setAttribute("style","-webkit-filter:blur(" + amount + "px)")
+    // document.getElementById("wrapper").setAttribute("style","-moz-filter:blur(" + amount + "px)")
+    // document.getElementById("wrapper").setAttribute("style","-o-filter:blur(" + amount + "px)")
+    // document.getElementById("wrapper").setAttribute("style","-ms-filter:blur(" + amount + "px)")
+    // document.getElementById("wrapper").setAttribute("style","filter:blur(" + amount + "px)")
+
+
+      document.getElementById("wrapper").style.width = value + "vh"
+
+
+      // amount = shapeObj.blur ? 5 : 0;
+      // document.getElementById("wrapper").setAttribute("style","-webkit-filter:blur(" + amount + "px)")
+      // document.getElementById("wrapper").setAttribute("style","-moz-filter:blur(" + amount + "px)")
+      // document.getElementById("wrapper").setAttribute("style","-o-filter:blur(" + amount + "px)")
+      // document.getElementById("wrapper").setAttribute("style","-ms-filter:blur(" + amount + "px)")
+      // document.getElementById("wrapper").setAttribute("style","filter:blur(" + amount + "px)")
+  }
+);
+gui2.add(shapeObj, 'height').min(0).max(100).step(0.25).onChange(
+  function(value){
+      document.getElementById("wrapper").style.height = value + "vh"
+  }
+);
+gui2.add(shapeObj, 'padding').min(0).max(30).step(0.25).onChange(
+  function(value){
+    var elements = document.getElementsByClassName('recursive-active');
+    for(var i=0; i<elements.length; i++) {
+      if (elements[i] !== undefined) elements[i].style.padding = value + "vh";
+    }
+  }
+);
+
+gui2.add(shapeObj, 'borderRadius').min(0).max(100).step(0.25).onChange(
+  function(value){
+
+    var elements = document.getElementsByClassName('recursive-active');
+    for(var i=0; i<elements.length; i++) {
+      var pct = i / (elements.length-1);
+      var scaleMe = 1; //(1 + 1.5-1.5*Math.pow(pct, 3.0) );
+      if (elements[i] !== undefined) elements[i].style.borderRadius = value*scaleMe + "vh";
+    }
+  }
+);
+
+gui2.add(shapeObj, 'blur').onChange(
+  function(value){
+
+
+    var amount = value ? 5 : 0;
+
+
+      //
+      // -webkit-filter: blur(0px);
+      // -moz-filter: blur(0px);
+      // -o-filter: blur(0px);
+      // -ms-filter: blur(0px);
+      // filter: blur(0px);
+
+  document.getElementById("wrapper").setAttribute("style","-webkit-filter:blur(" + amount + "px)")
+  document.getElementById("wrapper").setAttribute("style","-moz-filter:blur(" + amount + "px)")
+  document.getElementById("wrapper").setAttribute("style","-o-filter:blur(" + amount + "px)")
+  document.getElementById("wrapper").setAttribute("style","-ms-filter:blur(" + amount + "px)")
+  document.getElementById("wrapper").setAttribute("style","filter:blur(" + amount + "px)")
+  document.getElementById("wrapper").style.width = shapeObj.width + "vh"
+  document.getElementById("wrapper").style.height = shapeObj.height + "vh"
+
+    console.log("blur change " + value);
+  }
+);
+
+gui2.add(shapeObj, 'alphaFade');
+gui2.add(shapeObj, 'alphaSpeed').min(0).max(0.4).step(0.025)
+
+document.getElementById("wrapper").style.width = shapeObj.width + "vh"
+document.getElementById("wrapper").style.height = shapeObj.height + "vh"
+
+
+
+
+    onmousemove = function(e) {
+      document.mouseX = e.clientX;
+      document.mouseY = e.clientY;
+    }
+    document.body.addEventListener('mousemove', onmousemove);
+
+
+    var noise = new Noise(Math.random());
+
+    var count = 0;
+    var orientation = 0;
+
+    function animate() {
+
+      count++;
+      orientation += obj.rotationSpeed;
+
+      for (ii = 1; ii < 9; ii++) {
+
+        if (true){
+
+          document.getElementById("ra2").style.backgroundImage = "none";
+          document.getElementById("ra3").style.backgroundImage = "none";
+          document.getElementById("ra5").style.backgroundImage = "none";
+          document.getElementById("ra6").style.backgroundImage = "none";
+          document.getElementById("ra8").style.backgroundImage = "none";
+
+          if (ii == 2) continue;
+          if (ii == 3) continue;
+          if (ii == 5) continue;
+          if (ii == 6) continue;
+          if (ii == 8) continue;
+
+        }
+
+        var temp = "ra" + ii;
+        var w = document.getElementById(temp).offsetWidth;
+        var h = document.getElementById(temp).offsetHeight;
+        var pct2 = h / w;
+
+
+        //console.log("hi");
+        //+= 0; //0.15;
+        var me = Math.abs(Math.sin(90 + orientation * (Math.PI * 2 / 360.)));
+
+
+        var noiseScale = obj.rotationNoiseScale;
+        if (!obj.useRotationNoise){
+          noiseScale = 0;
+        }
+
+        var pctMe = (ii-1) / 7.0;
+        var orientationOrig = (orientation - ii * obj.rotationOffset*Math.sin(pctMe * Math.PI) + noiseScale*noise.perlin2(count*(obj.rotationNoiseSpeed/10.0),  ii*obj.rotationNoiseFreq)*160.0);
+        var orientation2 = orientationOrig.toFixed(2);
+
+
+        var xScale = obj.centerXPushScale;
+        var ySCale = obj.centerYPushScale;
+
+        if (!obj.useCenterPush){
+          xScale = 0;
+          ySCale = 0;
+        }
+
+        var alphaVal = shapeObj.alphaFade ? 0.5 + 0.5 * Math.sin(count*shapeObj.alphaSpeed + ii*0.5) : 1.0;
+
+        var alphaAmount  = ( Math.floor(alphaVal*255)).toString(16);;
+        //console.log(alphaAmount);
+
+        var xx = obj.centerX*100.0 + xScale*50. * Math.sin(ii * 1 * obj.centerXPushFreq - count * 0.1*obj.centerXPushSpeed);
+        var yy = obj.centerY*100.0 + ySCale*50. *  Math.cos(ii*1* obj.centerXPushFreq - count* 0.1*obj.centerYPushSpeed);
+        var style = 'conic-gradient(from ' + orientationOrig.toFixed(2) + 'deg at ' + xx + '% ' + yy + '%, ';
+        for (i = 0; i < gradient.length; i++) {
+          style += gradient[i].color + alphaAmount + " ";
+          var pct = gradient[i].pos;
+          pct *= 0.9;
+          style += (pct * 180.).toFixed(2) + "deg"
+          if (i != gradient.length - 1) {
+            style += ",";
+          }
+        }
+        style += ",";
+        for (i = 0; i < gradient.length; i++) {
+          style += gradient[i].color + alphaAmount + " ";
+          var pct = gradient[i].pos;
+          pct *= 0.9;
+          style += (180. + pct * 180.).toFixed(2) + "deg"
+          if (i != gradient.length - 1) {
+            style += ",";
+          }
+        }
+
+        style += ",";
+        style += gradient[0].color + alphaAmount +  " ";
+        style += " 360deg";
+        style += ")";
+        //console.log(style);
+        document.getElementById(temp).style.backgroundImage = style;
+
+        // document.getElementById(temp).style.backgroundImage.opacity = 0.5 + 0.5 * Math.sin(count*0.05 + ii*0.9);
+
+
+      }
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+
+
+
+
+
+  </script>
+</body>
+</html>
