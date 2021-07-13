@@ -13,6 +13,7 @@
 
 <body>
 
+<div id="full-height">
 
   <div class="recursives-wrapper" id="wrapper">
 
@@ -48,11 +49,13 @@
 
 </div>
 
+</div>
+
   <script>
 
 
   // --- gradient data:
-  var gradients = [ { "colors": [ { "color": "#c9c0d4", "pos": 0.0 }, { "color": "#c783bd", "pos": 0.242299988865852 }, { "color": "#ff1200", "pos": 0.484500020742416 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#8dccdc", "pos": 0.695899963378906 }, { "color": "#c4dceb", "pos": 0.804100036621094 }, { "color": "#c9c04d", "pos": 0.933000028133392 } ], "name": "surge" }, { "colors": [ { "color": "#c7bed2", "pos": 0.0 }, { "color": "#58b4db", "pos": 0.190699994564056 }, { "color": "#38bb6a", "pos": 0.479399979114532 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#ee9bcb", "pos": 0.63919997215271 }, { "color": "#c2dae9", "pos": 0.804100036621094 }, { "color": "#82bed2", "pos": 0.933000028133392 } ], "name": "vailance" }, { "colors": [ { "color": "#c7bed2", "pos": 0.0 }, { "color": "#ffef2f", "pos": 0.242299988865852 }, { "color": "#f06729", "pos": 0.484500020742416 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#948fb8", "pos": 0.649499952793121 }, { "color": "#c2dae9", "pos": 0.804899990558624 }, { "color": "#c7bed2", "pos": 0.933000028133392 } ], "name": "dawnburst" }, { "colors": [ { "color": "#ffead6", "pos": 0.0 }, { "color": "#ff9924", "pos": 0.172099992632866 }, { "color": "#dd3333", "pos": 0.288700014352798 }, { "color": "#443d85", "pos": 0.479399979114532 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#c5e5f0", "pos": 0.700399994850159 }, { "color": "#e6f5ff", "pos": 0.814400017261505 }, { "color": "#83d4c8", "pos": 1.0 } ], "name": "blazon" }, { "colors": [ { "color": "#afd3de", "pos": 0.0 }, { "color": "#ded170", "pos": 0.190699994564056 }, { "color": "#fd8015", "pos": 0.345400005578995 }, { "color": "#9d84c2", "pos": 0.489500015974045 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#5a84bd", "pos": 0.645899951457977 }, { "color": "#e1f5ff", "pos": 0.840199947357178 }, { "color": "#9cb8ee", "pos": 1.0 } ], "name": "arcon" }, { "colors": [ { "color": "#d9c2fc", "pos": 0.046399999409914 }, { "color": "#d446cd", "pos": 0.340200006961823 }, { "color": "#fd9125", "pos": 0.505200028419495 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#7086b8", "pos": 0.649499952793121 }, { "color": "#ebf6ff", "pos": 0.835099995136261 }, { "color": "#99bce9", "pos": 0.974200010299683 } ], "name": "pulsar" } ]
+  var gradients = [ { "colors": [ { "color": "#c9c0d4", "pos": 0.0 }, { "color": "#c783bd", "pos": 0.242299988865852 }, { "color": "#ff1200", "pos": 0.484500020742416 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#8dccdc", "pos": 0.695899963378906 }, { "color": "#c4dceb", "pos": 0.804100036621094 }, { "color": "#c9c0d4", "pos": 0.933000028133392 } ], "name": "surge" }, { "colors": [ { "color": "#c7bed2", "pos": 0.0 }, { "color": "#58b4db", "pos": 0.190699994564056 }, { "color": "#38bb6a", "pos": 0.479399979114532 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#ee9bcb", "pos": 0.63919997215271 }, { "color": "#c2dae9", "pos": 0.804100036621094 }, { "color": "#82bed2", "pos": 0.933000028133392 } ], "name": "vailance" }, { "colors": [ { "color": "#c7bed2", "pos": 0.0 }, { "color": "#ffef2f", "pos": 0.242299988865852 }, { "color": "#f06729", "pos": 0.484500020742416 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#948fb8", "pos": 0.649499952793121 }, { "color": "#c2dae9", "pos": 0.804899990558624 }, { "color": "#c7bed2", "pos": 0.933000028133392 } ], "name": "dawnburst" }, { "colors": [ { "color": "#ffead6", "pos": 0.0 }, { "color": "#ff9924", "pos": 0.172099992632866 }, { "color": "#dd3333", "pos": 0.288700014352798 }, { "color": "#443d85", "pos": 0.479399979114532 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#c5e5f0", "pos": 0.700399994850159 }, { "color": "#e6f5ff", "pos": 0.814400017261505 }, { "color": "#83d4c8", "pos": 1.0 } ], "name": "blazon" }, { "colors": [ { "color": "#afd3de", "pos": 0.0 }, { "color": "#ded170", "pos": 0.190699994564056 }, { "color": "#fd8015", "pos": 0.345400005578995 }, { "color": "#9d84c2", "pos": 0.489500015974045 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#5a84bd", "pos": 0.645899951457977 }, { "color": "#e1f5ff", "pos": 0.840199947357178 }, { "color": "#9cb8ee", "pos": 1.0 } ], "name": "arcon" }, { "colors": [ { "color": "#d9c2fc", "pos": 0.046399999409914 }, { "color": "#d446cd", "pos": 0.340200006961823 }, { "color": "#fd9125", "pos": 0.505200028419495 }, { "color": "#1a1a1a", "pos": 0.520600020885468 }, { "color": "#7086b8", "pos": 0.649499952793121 }, { "color": "#ebf6ff", "pos": 0.835099995136261 }, { "color": "#99bce9", "pos": 0.974200010299683 } ], "name": "pulsar" } ]
    var gradientNames = [];
    for (i = 0; i < gradients.length; i++){
      gradientNames.push(gradients[i].name);
@@ -129,13 +132,15 @@ var shapeObj = {
   height: 70,
   padding: 1.12,
   borderRadius: 1.12,
-  blur: false,
-  alphaFade: false,
-  alphaSpeed: 0.05
+  glass: false,
+  transferAnimation: false,
+  animationSpeed: 0.05
 
 
 }
 var gui2 = new dat.gui.GUI( { width: 300 });
+gui2.domElement.id = 'gui';
+
 gui2.remember(shapeObj);
 gui2.add(shapeObj, 'width').min(0).max(100).step(0.25).onChange(
   function(value){
@@ -185,7 +190,7 @@ gui2.add(shapeObj, 'borderRadius').min(0).max(100).step(0.25).onChange(
   }
 );
 
-gui2.add(shapeObj, 'blur').onChange(
+gui2.add(shapeObj, 'glass').onChange(
   function(value){
 
 
@@ -199,20 +204,23 @@ gui2.add(shapeObj, 'blur').onChange(
       // -ms-filter: blur(0px);
       // filter: blur(0px);
 
-  document.getElementById("wrapper").setAttribute("style","-webkit-filter:blur(" + amount + "px)")
-  document.getElementById("wrapper").setAttribute("style","-moz-filter:blur(" + amount + "px)")
-  document.getElementById("wrapper").setAttribute("style","-o-filter:blur(" + amount + "px)")
-  document.getElementById("wrapper").setAttribute("style","-ms-filter:blur(" + amount + "px)")
-  document.getElementById("wrapper").setAttribute("style","filter:blur(" + amount + "px)")
-  document.getElementById("wrapper").style.width = shapeObj.width + "vh"
-  document.getElementById("wrapper").style.height = shapeObj.height + "vh"
+
+    amount = value ? 5 : 0;
+
+    document.getElementById("full-height").setAttribute("style","-webkit-filter:blur(" + amount + "px)")
+    document.getElementById("full-height").setAttribute("style","-moz-filter:blur(" + amount + "px)")
+    document.getElementById("full-height").setAttribute("style","-o-filter:blur(" + amount + "px)")
+    document.getElementById("full-height").setAttribute("style","-ms-filter:blur(" + amount + "px)")
+    document.getElementById("full-height").setAttribute("style","filter:blur(" + amount + "px)")
+    document.getElementById("wrapper").style.width = shapeObj.width + "vh"
+    document.getElementById("wrapper").style.height = shapeObj.height + "vh"
 
     console.log("blur change " + value);
   }
 );
 
-gui2.add(shapeObj, 'alphaFade');
-gui2.add(shapeObj, 'alphaSpeed').min(0).max(0.4).step(0.025)
+gui2.add(shapeObj, 'transferAnimation');
+gui2.add(shapeObj, 'animationSpeed').min(0).max(0.4).step(0.025)
 
 document.getElementById("wrapper").style.width = shapeObj.width + "vh"
 document.getElementById("wrapper").style.height = shapeObj.height + "vh"
@@ -284,7 +292,7 @@ document.getElementById("wrapper").style.height = shapeObj.height + "vh"
           ySCale = 0;
         }
 
-        var alphaVal = shapeObj.alphaFade ? 0.5 + 0.5 * Math.sin(count*shapeObj.alphaSpeed + ii*0.5) : 1.0;
+        var alphaVal = shapeObj.transferAnimation ? 0.5 + 0.5 * Math.sin(count*shapeObj.animationSpeed + ii*0.5) : 1.0;
 
         var alphaAmount  = ( Math.floor(alphaVal*255)).toString(16);;
         //console.log(alphaAmount);
